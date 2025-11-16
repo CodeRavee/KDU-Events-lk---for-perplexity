@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about us</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    * {
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+
+    }
+
+    html {
+      scroll-behavior:smooth;
+
+    }
+
+    body {
+      font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+      line-height:1.6;
+      color:#333;
+      overflow-x:hidden;
+
+    }
+
+    .navbar {
+      background:#001F54;
+      height:80px;
+      margin:20px;
+      box-shadow:0 2px 4px rgba(0,0,0,0.6);
+      border-radius:16px;
+      padding:0.5rem 2rem;
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:1000;
+
+    }
+
+    .navbar-brand img {
+      height:60px;
+      width:auto;
+      transition:transform 0.3s;
+
+    }
+
+    .navbar-brand img:hover {
+      transform:scale(1.05);
+
+    }
+
+    .navbar-toggler {
+      border:none;
+      font-size:1.25rem;
+      color:#fff;
+
+    }
+
+    .nav-link {
+      color:#fff !important;
+      font-weight:500;
+      font-size:1rem;
+      position:relative;
+      padding:0.5rem 1rem;
+      transition:color 0.3s;
+
+    }
+
+    .nav-link:hover,.nav-link.active {
+      color:#FF7F32 !important;
+
+    }
+
+    @media (min-width:992px) {
+      .nav-link::before {
+      content:"";
+      position:absolute;
+      bottom:0;
+      left:50%;
+      transform:translateX(-50%);
+      width:0;
+      height:2px;
+      background:#FF7F32;
+      transition:width 0.3s;
+
+    }
+
+    .nav-link:hover::before {
+      width:80%;
+
+    }
+
+    }
+
+    .search-bar {
+      background:#FF7F32;
+      border-radius:25px;
+      border:none;
+      padding:0.5rem 1rem;
+      width:210px;
+      color:#fff;
+      outline:none;
+      transition:all 0.3s;
+
+    }
+
+    .search-bar::placeholder {
+      color:rgba(255,255,255,.8);
+
+    }
+
+    .search-bar:focus {
+      width:250px;
+      background:#e56a1f;
+
+    }
+
+    .search-btn {
+      position:absolute;
+      right:18px;
+      top:50%;
+      transform:translateY(-60%);
+      background:transparent;
+      border:none;
+      color:#fff;
+      font-size:21px;
+      cursor:pointer;
+
+    }
+
+    .slideshow-section {
+      margin-top:0;
+      padding-top:120px;
+      min-height:100vh;
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(135deg,#001F54 0%,#4A90E2 50%,#87CEEB 100%);
+
+    }
+
+    .slideshow-container {
+      position:relative;
+      width:100%;
+      height:calc(100vh - 120px);
+      overflow:hidden;
+
+    }
+
+    .slide {
+      display:none;
+      width:100%;
+      height:100%;
+      align-items:center;
+      padding:3rem 5%;
+      animation:fadeIn 0.8s;
+
+    }
+
+    .slide.active {
+      display:flex;
+
+    }
+
+    @keyframes fadeIn {
+      from {
+      opacity:0;
+      transform:translateY(20px);
+
+    }
+
+    to {
+      opacity:1;
+      transform:translateY(0);
+
+    }
+
+    }
+
+    .slide-content {
+      flex:1;
+      color:#fff;
+      padding-right:3rem;
+
+    }
+
+    .slide-content h1 {
+      font-family:'Impact',sans-serif;
+      font-size:12rem;
+      color:#FF7F32;
+      line-height:1;
+      margin-bottom:0;
+      text-shadow:2px 2px 4px rgba(0,0,0,0.3);
+
+    }
+
+    .slide-content h2 {
+      font-family:'Impact',sans-serif;
+      font-size:6rem;
+      color:#fff;
+      line-height:1;
+      margin-bottom:1.5rem;
+      text-shadow:2px 2px 4px rgba(0,0,0,0.3);
+
+    }
+
+    .slide-content h3 {
+      font-size:3.5rem;
+      color:#FF7F32;
+      margin-bottom:1rem;
+      font-weight:bold;
+
+    }
+
+    .slide-content p {
+      font-size:1.2rem;
+      line-height:1.8;
+      margin-bottom:2rem;
+      max-width:600px;
+
+    }
+
+    .slide-btn {
+      background:#FF7F32;
+      color:#fff;
+      padding:15px 40px;
+      border-radius:25px;
+      text-decoration:none;
+      font-size:1.1rem;
+      font-weight:bold;
+      display:inline-block;
+      transition:all 0.3s;
+      box-shadow:0 5px 15px rgba(255,127,50,0.3);
+
+    }
+
+    .slide-btn:hover {
+      background:#e56a1f;
+      transform:translateY(-3px);
+      box-shadow:0 8px 20px rgba(255,127,50,0.4);
+
+    }
+
+    .slide-image {
+      flex:1;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+    }
+
+    .slide-image img {
+      max-width:100%;
+      height:auto;
+      border-radius:15px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.3);
+      max-height:500px;
+      object-fit:cover;
+
+    }
+
+    .slide-dots {
+      position:absolute;
+      bottom:30px;
+      left:50%;
+      transform:translateX(-50%);
+      display:flex;
+      gap:15px;
+      z-index:10;
+
+    }
+
+    .dot {
+      width:15px;
+      height:15px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.5);
+      cursor:pointer;
+      transition:all 0.3s;
+
+    }
+
+    .dot.active {
+      background:#FF7F32;
+      transform:scale(1.2);
+
+    }
+
+    .dot:hover {
+      background:rgba(255,127,50,0.8);
+
+    }
+
+    .trending-section {
+      background:linear-gradient(135deg,#4A90E2 0%,#87CEEB 100%);
+      padding:80px 0;
+
+    }
+
+    .section-title {
+      text-align:center;
+      font-size:2.5rem;
+      color:#001F54;
+      font-weight:bold;
+      margin-bottom:6rem;
+
+    }
+
+    .slider-container {
+      position:relative;
+      max-width:1400px;
+      margin:0 auto;
+      padding:0 80px;
+
+    }
+
+    .events-slider {
+      display:flex;
+      gap:30px;
+      justify-content:center;
+      align-items:center;
+      position:relative;
+      min-height:450px;
+      overflow:visible;
+
+    }
+
+    .event-card {
+
+      background:#fff;
+
+      border-radius:15px;
+
+      padding:0;
+
+      min-width:320px;
+
+      max-width:320px;
+
+      min-height:520px;
+
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+      transition:all 0.8s ease-in-out;
+
+      opacity:0.8;
+
+      transform:scale(0.75);
+
+      cursor:pointer;
+
+      overflow:hidden;
+
+    }
+
+    .event-poster {
+
+      width:100%;
+
+      height:300px;
+
+      object-fit:cover;
+
+      border-radius:15px 15px 0 0;
+
+    }
+
+    .event-content {
+
+      padding:1.5rem;
+
+    }
+
+    .event-card.center {
+      transform:scale(1.1) translateY(-20px);
+      opacity:1;
+      box-shadow:0 20px 40px rgba(0,0,0,0.2);
+      z-index:10;
+
+    }
+
+    .event-card.center:hover {
+      transform:scale(1.15) translateY(-25px);
+
+    }
+
+    .event-card:not(.center):hover {
+      transform:scale(0.95) translateY(-5px);
+
+    }
+
+    .event-card h3 {
+      color:#001F54;
+      font-size:1.5rem;
+      margin-bottom:1rem;
+      font-weight:bold;
+
+    }
+
+    .event-date {
+      color:#666;
+      font-size:1rem;
+      margin-bottom:1.5rem;
+      display:flex;
+      align-items:center;
+      gap:8px;
+
+    }
+
+    .event-date::before {
+      content:'📅';
+      font-size:1.2rem;
+
+    }
+
+    .more-btn {
+      background:#FF7F32;
+      color:#fff;
+      border:none;
+      padding:10px 25px;
+      border-radius:20px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:all 0.3s;
+      width:100%;
+
+    }
+
+    .more-btn:hover {
+      background:#e56a1f;
+      transform:translateY(-2px);
+      box-shadow:0 5px 15px rgba(255,127,50,0.3);
+
+    }
+
+    .slider-arrow {
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      background:#FF7F32;
+      border:none;
+      color:#fff;
+      font-size:1.5rem;
+      cursor:pointer;
+      transition:all 0.3s;
+      z-index:20;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+    }
+
+    .slider-arrow:hover {
+      background:#e56a1f;
+      transform:translateY(-50%) scale(1.1);
+
+    }
+
+    .slider-arrow.left {
+      left:10px;
+
+    }
+
+    .slider-arrow.right {
+      right:10px;
+
+    }
+
+    .event-dots {
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      margin-top:3rem;
+
+    }
+
+    .event-dot {
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.5);
+      cursor:pointer;
+      transition:all 0.3s;
+
+    }
+
+    .event-dot.active {
+      background:#FF7F32;
+      transform:scale(1.3);
+
+    }
+
+    .calendar-section {
+      background:#f8f9fa;
+      padding:80px 0;
+
+    }
+
+    .calendar-container {
+      max-width:800px;
+      margin:0 auto;
+      background:#fff;
+      border-radius:10px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      overflow:hidden;
+
+    }
+
+    .calendar-header {
+      background:#001F54;
+      color:#fff;
+      padding:1.5rem;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:1.5rem;
+      font-size:1.5rem;
+      font-weight:bold;
+      border-radius:10px 10px 0 0;
+
+    }
+
+    .calendar-arrow {
+      background:#FF7F32;
+      border:none;
+      border-radius:50%;
+      width:38px;
+      height:38px;
+      color:#fff;
+      font-size:1.4rem;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:background 0.3s;
+      cursor:pointer;
+
+    }
+
+    .calendar-arrow:hover {
+      background:#e56a1f;
+
+    }
+
+    .calendar-subtitle {
+
+      text-align:center;
+
+      font-size:1.2rem;
+
+      color:#666;
+
+      margin-bottom:3rem;
+
+      font-style:italic;
+
+    }
+
+    .calendar-grid {
+      display:grid;
+      grid-template-columns:repeat(7,1fr);
+      gap:1px;
+      background:#e0e0e0;
+
+    }
+
+    .calendar-day-header {
+      background:#001F54;
+      color:#fff;
+      padding:15px;
+      text-align:center;
+      font-weight:bold;
+      font-size:0.9rem;
+
+    }
+
+    .calendar-date {
+      background:#fff;
+      padding:15px;
+      text-align:center;
+      cursor:pointer;
+      transition:all 0.3s;
+      min-height:60px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:500;
+
+    }
+
+    .calendar-date:hover {
+      background:#f0f0f0;
+
+    }
+
+    .calendar-date.today {
+      background-color:#001F54;
+      color:#fff;
+      font-weight:bold;
+
+    }
+
+    .calendar-date.selected {
+      background-color:#FF7F32;
+      color:#fff;
+      font-weight:bold;
+
+    }
+
+    .calendar-date.empty {
+      background-color:#fafafa;
+      cursor:default;
+
+    }
+
+    .calendar-date.empty:hover {
+      background-color:#fafafa;
+
+    }
+
+    .about-section {
+      background:linear-gradient(135deg,#87CEEB 0%,#4A90E2 100%);
+      padding:80px 0;
+
+    }
+
+    .about-content {
+      max-width:800px;
+      margin:0 auto;
+      text-align:center;
+      color:#fff;
+
+    }
+
+    .about-content p {
+      font-size:1.2rem;
+      line-height:1.8;
+      margin-bottom:2rem;
+
+    }
+
+    .permission-btn {
+      background:#FF7F32;
+      color:#fff;
+      padding:15px 30px;
+      border-radius:25px;
+      text-decoration:none;
+      font-size:1.1rem;
+      font-weight:bold;
+      display:inline-block;
+      transition:all 0.3s;
+      box-shadow:0 5px 15px rgba(255,127,50,0.3);
+
+    }
+
+    .permission-btn:hover {
+      background:#e56a1f;
+      transform:translateY(-3px);
+      box-shadow:0 8px 20px rgba(255,127,50,0.4);
+
+    }
+
+    .footer {
+      background:#001F54;
+      color:#fff;
+      padding:40px 0 20px;
+
+    }
+
+    .footer-content {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:3rem;
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 2rem;
+
+    }
+
+    .footer-section h4 {
+      color:#FF7F32;
+      margin-bottom:1.5rem;
+      font-size:1.3rem;
+
+    }
+
+    .footer-section ul {
+      list-style:none;
+      padding:0;
+
+    }
+
+    .footer-section ul li {
+      margin-bottom:0.8rem;
+
+    }
+
+    .footer-section a {
+      color:#fff;
+      text-decoration:none;
+      transition:all 0.3s;
+
+    }
+
+    .footer-section a:hover {
+      color:#FF7F32;
+      padding-left:5px;
+
+    }
+
+    .footer-section p {
+      margin-bottom:0.8rem;
+      line-height:1.8;
+
+    }
+
+    .social-icon {
+  width: 60px;   /* Exact container size */
+  height: 60px;
+}
+
+.social-icon img {
+  width: 60px !important;    /* Force exact size */
+  height: 60px !important;   /* Override any conflicts */
+  object-fit: cover;         /* Fill circle perfectly */
+  border-radius: 50%;        /* Circular shape */
+}
+
+social-icon-img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.social-icon:hover {
+  transform: scale(1.15);  /* Just grows 15% larger */
+}
+
+
+    .footer-bottom {
+      border-top:1px solid #333;
+      margin-top:2rem;
+      padding-top:1.5rem;
+      text-align:center;
+
+    }
+
+    @media (max-width:992px) {
+      .slide-content h1 {
+      font-size:8rem;
+
+    }
+
+    .slide-content h2 {
+      font-size:4rem;
+
+    }
+
+    .slide-content h3 {
+      font-size:2.5rem;
+
+    }
+
+    .events-slider {
+      gap:20px;
+
+    }
+
+    .slider-container {
+      padding:0 60px;
+
+    }
+
+    }
+
+    @media (max-width:768px) {
+      .navbar {
+      margin:10px;
+      height:auto;
+      padding:0.5rem 1rem;
+
+    }
+
+    .slideshow-section {
+      padding-top:100px;
+
+    }
+
+    .slide {
+      flex-direction:column;
+      padding:2rem;
+
+    }
+
+    .slide-content {
+      padding-right:0;
+      text-align:center;
+      margin-bottom:2rem;
+
+    }
+
+    .slide-content h1 {
+      font-size:4rem;
+
+    }
+
+    .slide-content h2 {
+      font-size:2.5rem;
+
+    }
+
+    .slide-content h3 {
+      font-size:2rem;
+
+    }
+
+    .slide-content p {
+      font-size:1rem;
+
+    }
+
+    .events-slider {
+      flex-direction:column;
+      gap:20px;
+
+    }
+
+    .event-card,.event-card.center {
+      transform:scale(1);
+      opacity:1;
+
+    }
+
+    .slider-container {
+      padding:0 20px;
+
+    }
+
+    .slider-arrow {
+      display:none;
+
+    }
+
+    .section-title {
+      font-size:2rem;
+
+    }
+
+    .calendar-date {
+      padding:10px;
+      min-height:50px;
+      font-size:0.9rem;
+
+    }
+
+    .search-bar {
+      width:150px;
+
+    }
+
+    .search-bar:focus {
+      width:180px;
+
+    }
+
+    }
+
+    @media (max-width:576px) {
+      .slide-content h1 {
+      font-size:3rem;
+
+    }
+
+    .slide-content h2 {
+      font-size:1.8rem;
+
+    }
+
+    .section-title {
+      font-size:1.8rem;
+
+    }
+
+    .calendar-day-header {
+      padding:10px 5px;
+      font-size:0.8rem;
+
+    }
+
+    .calendar-date {
+      padding:8px;
+      min-height:45px;
+      font-size:0.85rem;
+
+    }
+
+    }
+
+    /* Dropdown menu styling */
+    .dropdown-menu {
+
+  background:#001F54;
+
+  border:none;
+
+  border-radius:10px;
+
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+
+  margin-top:0.5rem;
+
+    }
+
+.dropdown-item {
+
+  color:#fff;
+
+  padding:0.7rem 1.5rem;
+
+  transition:all 0.3s;
+
+    }
+
+.dropdown-item:hover {
+
+  background:#FF7F32;
+
+  color:#fff;
+
+    }
+
+.dropdown-item.disabled {
+
+  color:rgba(255,255,255,0.4);
+
+  cursor:not-allowed;
+
+    }
+
+.dropdown-divider {
+
+  border-color:rgba(255,255,255,0.2);
+
+    }
+
+    .event-card.smooth-transition {
+
+      transition:all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    }
+
+    /* Smooth side-to-center sliding animation */
+    @keyframes slideFromRightToCenter  {
+
+      0%  {
+
+        transform: translateX(350px) scale(0.75);
+
+        opacity: 0.8;
+
+    }
+
+      100%  {
+
+        transform: translateX(0) scale(1.1) translateY(-20px);
+
+        opacity: 1;
+
+    }
+
+    }
+
+    @keyframes slideFromLeftToCenter  {
+
+      0%  {
+
+        transform: translateX(-350px) scale(0.75);
+
+        opacity: 0.8;
+
+    }
+
+      100%  {
+
+        transform: translateX(0) scale(1.1) translateY(-20px);
+
+        opacity: 1;
+
+    }
+
+    }
+
+    /* Apply smooth sliding to center card */
+    .event-card.center.slide-from-right  {
+
+      animation: slideFromRightToCenter 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+    }
+
+    .event-card.center.slide-from-left  {
+
+      animation: slideFromLeftToCenter 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+    }
+
+    /* Ensure smooth transitions on event cards */
+    .event-card  {
+
+      transition: all 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+    }
+  
+
+/* ========================================
+   CALENDAR SECTION ENHANCEMENTS ONLY
+   ======================================== */
+
+.calendar-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  animation: fadeInDown 0.8s ease-out;
+  margin-bottom: 0.5rem;
+}
+
+.calendar-icon {
+  font-size: 3rem;
+  animation: bounce 2s infinite;
+  filter: drop-shadow(0 4px 8px rgba(255, 127, 50, 0.3));
+}
+
+.calendar-subtitle {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #FF7F32;
+  margin-top: 0.5rem;
+  margin-bottom: 2.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  animation: fadeIn 1s ease-out 0.3s both;
+}
+
+.subtitle-icon {
+  font-size: 1.8rem;
+  animation: pointDown 1.5s ease-in-out infinite;
+}
+
+.subtitle-text {
+  background: linear-gradient(90deg, #FF7F32, #001F54, #FF7F32);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Calendar-only Animations */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pointDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+  /* ============================================================================
+       INTERACTIVE CALENDAR EVENT CARDS - STYLES
+       ============================================================================ */
+
+    /* Calendar wrapper for side-by-side layout */
+    .calendar-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .calendar-container {
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .calendar-container.slide-left {
+      transform: translateX(-200px);
+    }
+
+    /* Event dots on calendar dates */
+    .calendar-date {
+      position: relative;
+    }
+
+    .calendar-date.has-event {
+      cursor: pointer;
+    }
+
+    .calendar-date.has-event::after {
+      content: '●';
+      position: absolute;
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #FF7F32;
+      font-size: 16px;
+      animation: pulse 2s infinite;
+    }
+
+    .calendar-date.has-event:hover {
+      background: rgba(255, 127, 50, 0.15) !important;
+      transform: scale(1.05);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    /* Event Card Popup */
+    .event-card-popup {
+      position: fixed;
+      right: -500px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 450px;
+      max-height: 80vh;
+      background: linear-gradient(135deg, #4A90E2 0%, #87CEEB 100%);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      transition: right 0.5s ease-in-out, opacity 0.5s ease-in-out;
+      opacity: 0;
+      overflow: hidden;
+    }
+
+    .event-card-popup.show {
+      right: 50px;
+      opacity: 1;
+    }
+
+    .event-card-popup.hidden {
+      right: -500px;
+      opacity: 0;
+    }
+
+    /* Card Header */
+    .event-card-header {
+      background: #001F54;
+      color: #fff;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .event-card-header-content h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .event-count-badge {
+      display: inline-block;
+      background: #FF7F32;
+      color: #fff;
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    .event-card-close {
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .event-card-close:hover {
+      background: #FF7F32;
+      border-color: #FF7F32;
+      transform: rotate(90deg);
+    }
+
+    /* Card Body */
+    .event-card-body {
+      padding: 1.5rem;
+      max-height: calc(80vh - 120px);
+      overflow-y: auto;
+    }
+
+    .event-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .event-list li {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .event-list li:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .event-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .event-item-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #001F54;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .event-category-badge {
+      display: inline-block;
+      background: #FF7F32;
+      color: #fff;
+      padding: 0.2rem 0.6rem;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      font-weight: normal;
+    }
+
+    .event-item-time {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .event-item-time::before {
+      content: '🕒';
+      font-size: 1rem;
+    }
+
+    .event-item-location {
+      color: #666;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .event-item-location::before {
+      content: '📍';
+      font-size: 1rem;
+    }
+
+    .event-more-btn {
+      margin-top: 0.8rem;
+      background: #001F54;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .event-more-btn:hover {
+      background: #FF7F32;
+      transform: scale(1.05);
+    }
+
+    /* Scrollbar styling for event list */
+    .event-card-body::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .event-card-body::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+    }
+
+    .event-card-body::-webkit-scrollbar-thumb {
+      background: #001F54;
+      border-radius: 10px;
+    }
+
+    .event-card-body::-webkit-scrollbar-thumb:hover {
+      background: #FF7F32;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .event-card-popup {
+        width: 90%;
+        right: -100%;
+      }
+
+      .event-card-popup.show {
+        right: 5%;
+      }
+
+      .calendar-container.slide-left {
+        transform: translateX(-100px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .event-card-popup {
+        width: 95%;
+        max-height: 70vh;
+      }
+
+      .event-card-header {
+        padding: 1rem;
+      }
+
+      .event-card-header-content h3 {
+        font-size: 1.1rem;
+      }
+
+      .event-card-body {
+        padding: 1rem;
+      }
+
+      .calendar-container.slide-left {
+        transform: translateX(-50px);
+      }
+    }
+  
+
+/* About Us Page Specific Styles */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8fafc;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+
+
+.offcanvas-body li a{
+    color: #fff;
+}
+
+
+.search-container {
+            position: relative;
+        }
+
+        .search-input {
+            padding: 8px 40px 8px 15px;
+            border: none;
+            border-radius: 25px;
+            background: #FF7F32;
+            color: white;
+            width: 200px;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+
+
+
+
+.nav-lnink:hover, .nav-lnink.active{
+    color: black;
+
+}
+    
+@media (min-width:991px) {
+
+
+}
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #001F54 0%, #2d4d8a 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            margin-top:140px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+  
+        
+        /* Mission Section */
+        .mission {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #1a365d;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .mission-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .mission-text {
+            flex: 1;
+        }
+        
+        .mission-text h3 {
+            font-size: 1.8rem;
+            color: #1a365d;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-text p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        .mission-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mission-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background-color: #f1f5f9;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #1a365d 0%, #FF7F32 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #1a365d;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            color: #666;
+        }
+        
+       
+        
+        /* Stats Section */
+        .stats {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #1a365d 0%, #2d4d8a 100%);
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .stat-item p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Values Section */
+        .values {
+            padding: 5rem 0;
+            background-color: #f1f5f9;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .value-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+        
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1a365d 0%, #FF7F32 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .value-content h3 {
+            font-size: 1.3rem;
+            color: #1a365d;
+            margin-bottom: 0.8rem;
+        }
+        
+        .value-content p {
+            color: #666;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #1a365d 0%, #4caf50 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button.secondary {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+        
+        .cta-button.secondary:hover {
+            background-color: white;
+            color: #1a365d;
+        }
+        
+       /* Footer Section */
+
+
+
+
+
+
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #FF7F32;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #e56a1f;
+            transform: translateY(-2px);
+        }
+
+
+    </style>
+</head>
+<body>
+       <!--navbar-->
+       <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="home.html">
+        <img src="assets/images/Logo.png"style="height:80px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="eventsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Events
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="eventsDropdown">
+            <li><a class="dropdown-item" href="academic event.html">Academic Events</a></li>
+            <li><a class="dropdown-item" href="non academic event.html">Non-Academic Events</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item disabled" href="#">Coming Soon</a></li>
+            <li><a class="dropdown-item disabled" href="#">Coming Soon</a></li>
+            <li><a class="dropdown-item disabled" href="#">Coming Soon</a></li>
+          </ul>
+        </li>
+          <li class="nav-item"><a class="nav-link" href="updates.html">Updates</a></li>
+        <li class="nav-item"><a class="nav-link active" href="about us.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact us.html">Contact Us</a></li>
+        </ul>
+        <form class="position-relative" style="width:240px; margin-left:30px;">
+          <input class="search-bar" type="search" placeholder="Search..." aria-label="Search" style="width:100%;padding-right:48px;">
+          <button class="search-btn" type="submit" aria-label="Search">
+            <svg height="22" width="22" viewBox="0 0 24 24" fill="#fff"><circle cx="11" cy="11" r="8" stroke="#fff" stroke-width="2" fill="none"/><line x1="21" y1="21" x2="16.6" y2="16.6" stroke="#fff" stroke-width="2"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+    <!--end of navbar-->
+    <!-- Header Section -->
+ 
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>About KDU Events</h1>
+            <p>We're revolutionizing how universities manage, promote, and experience campus events. Our platform connects students, faculty, and organizers in one seamless ecosystem.</p>
+         
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission" id="mission">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Mission & Vision</h2>
+                <p>We believe in creating vibrant campus communities through exceptional event experiences</p>
+            </div>
+            <div class="mission-content">
+                <div class="mission-text">
+                    <h3>Connecting Campus Communities Through Events</h3>
+                   
+                    <p>Our mission is to create a centralized platform that simplifies event management for organizers while making it effortless for students and faculty to discover and participate in campus activities.</p>
+                    <p>We envision a future where every campus event reaches its full potential audience, where organizers have the tools they need to succeed, and where university communities are more connected than ever before.</p>
+                </div>
+                <div class="mission-image">
+                    <!-- Placeholder for mission image -->
+                    <img src="assets/images/p1.jpg" 
+     alt="KDU Events Mission - Connecting Campus Community" 
+     style="width: 100%; height: 350px; border-radius: 15px;">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose KDU Events?</h2>
+                <p>Our platform offers comprehensive solutions for all your event management needs</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Easy Event Discovery</h3>
+                    <p>Students can easily find and register for events that match their interests with our intuitive filtering system.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Powerful Management Tools</h3>
+                    <p>Organizers have access to comprehensive tools for creating, promoting, and managing their events efficiently.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>Streamlined Approvals</h3>
+                    <p>Our "Request Event Permission" system simplifies the approval process for campus events.</p>
+                </div>
+         
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Analytics & Insights</h3>
+                    <p>Gain valuable insights into event performance with our comprehensive analytics dashboard.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile-Friendly</h3>
+                    <p>Access our platform from any device with our fully responsive design and mobile app.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core Values</h2>
+                <p>The principles that guide everything we do at KDU Events</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Community First</h3>
+                        <p>We prioritize building strong campus communities where every member feels connected and engaged.</p>
+                    </div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Innovation</h3>
+                        <p>We continuously seek new ways to improve the event experience through technology and creative solutions.</p>
+                    </div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Collaboration</h3>
+                        <p>We believe in working closely with our university partners to create solutions that address their specific challenges.</p>
+                    </div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Reliability</h3>
+                        <p>Our platform is built on a foundation of stability and security, ensuring events run smoothly from start to finish.</p>
+                    </div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Passion</h3>
+                        <p>We're genuinely passionate about creating memorable event experiences that enrich campus life.</p>
+                    </div>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="value-content">
+                        <h3>Growth</h3>
+                        <p>We're committed to continuous improvement and expanding our platform's capabilities to serve our users better.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer Section -->
+    <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="non academic event.html">Events</a></li>
+          <li><a href="about us.html">About Us</a></li>
+          <li><a href="contact us.html">Contact Us</a></li>
+          <li><a href="request event process pages\organizer-login.html">Request Event Permission</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact Info</h4>
+        <p>📍 Kandawala Road, Ratmalana,<br>Mount Lavinia 10390</p>
+        <p>✉️ info@events.kdu.ac.lk</p>
+        <p>📞 +94 11 255 3000</p>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+        <a href="https://facebook.com" class="social-icon" target="_blank">
+          <img src="assets/images/facebook.png" alt="Facebook">
+        </a>
+        <a href="https://youtube.com" class="social-icon" target="_blank">
+          <img src="assets/images/youtube.png" alt="YouTube">
+        </a>
+        <a href="https://instagram.com" class="social-icon" target="_blank">
+          <img src="assets/images/instagram.png" alt="Instagram">
+        </a>
+        <a href="https://wa.me/1234567890" class="social-icon" target="_blank">
+          <img src="assets/images/whatsapp.png" alt="WhatsApp">
+        </a>
+      </div>
+
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 KDU Events. All rights reserved.</p>
+    </div>
+  </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add animation to elements when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .team-member, .value-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+
+    <!-- Bootstrap 5.3.8 JS Bundle -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
